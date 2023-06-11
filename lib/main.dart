@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'components/totp_card.dart';
+
 void main() {
   runApp(const TotpApp());
 }
@@ -7,11 +9,10 @@ void main() {
 class TotpApp extends StatelessWidget {
   const TotpApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'NanoAuth',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
@@ -29,10 +30,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  void _incrementCounter() {
-    setState(() {});
-  }
-
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -51,15 +48,12 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: const Text('NanoAuth'),
       ),
-      body: const Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
+      body: const Padding(
+        padding: EdgeInsets.all(12.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Add an App',
-            ),
+          children: [
+            TotpCard(),
+            TotpCard(),
           ],
         ),
       ),
